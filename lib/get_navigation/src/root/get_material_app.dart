@@ -67,9 +67,11 @@ class GetMaterialApp extends StatelessWidget {
   final RouteInformationParser<Object>? routeInformationParser;
   final RouterDelegate<Object>? routerDelegate;
   final BackButtonDispatcher? backButtonDispatcher;
+  final String? restorationScopeId;
   const GetMaterialApp({
     Key? key,
     this.navigatorKey,
+    this.restorationScopeId,
     this.scaffoldMessengerKey,
     this.home,
     Map<String, Widget Function(BuildContext)> this.routes =
@@ -141,6 +143,7 @@ class GetMaterialApp extends StatelessWidget {
     this.onGenerateTitle,
     this.color,
     this.theme,
+    this.restorationScopeId,
     this.darkTheme,
     this.highContrastTheme,
     this.highContrastDarkTheme,
@@ -277,6 +280,7 @@ class GetMaterialApp extends StatelessWidget {
                 navigatorKey: (navigatorKey == null
                     ? Get.key
                     : Get.addKey(navigatorKey!)),
+                restorationScopeId: restorationScopeId,
                 scaffoldMessengerKey:
                     scaffoldMessengerKey ?? _.scaffoldMessengerKey,
                 home: home,
